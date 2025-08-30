@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Sparkles, RotateCcw } from "lucide-react";
 import { storageService } from "@/lib/storage";
 import { StreakDisplay } from "./StreakDisplay";
 import { WeekView } from "./WeekView";
@@ -116,10 +117,23 @@ export const HabitTracker = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center space-y-4 animate-pulse">
-          <div className="w-12 h-12 bg-primary/20 rounded-full mx-auto animate-bounce"></div>
-          <p className="text-muted-foreground">Loading your habit tracker...</p>
+      <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 bg-gradient-bg"></div>
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/10 rounded-full blur-2xl animate-pulse"></div>
+        
+        <div className="text-center space-y-6 animate-fade-in-up relative z-10">
+          <div className="relative">
+            <div className="w-16 h-16 bg-gradient-primary rounded-2xl mx-auto animate-bounce-gentle flex items-center justify-center">
+              <Sparkles className="w-8 h-8 text-white" />
+            </div>
+            <div className="absolute inset-0 w-16 h-16 bg-gradient-primary rounded-2xl mx-auto opacity-50 animate-ping"></div>
+          </div>
+          <div className="space-y-2">
+            <p className="text-xl font-semibold text-foreground">Loading your habit tracker</p>
+            <p className="text-muted-foreground">Preparing your journey...</p>
+          </div>
         </div>
       </div>
     );
@@ -127,15 +141,23 @@ export const HabitTracker = () => {
 
   if (!habitData) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center space-y-4">
-          <p className="text-destructive">Failed to load habit data</p>
-          <button 
-            onClick={initializeData}
-            className="text-primary hover:underline"
-          >
-            Try again
-          </button>
+      <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 bg-gradient-bg"></div>
+        
+        <div className="text-center space-y-6 animate-fade-in-up relative z-10">
+          <div className="w-16 h-16 bg-destructive/10 rounded-2xl mx-auto flex items-center justify-center">
+            <RotateCcw className="w-8 h-8 text-destructive" />
+          </div>
+          <div className="space-y-4">
+            <p className="text-xl font-semibold text-destructive">Failed to load habit data</p>
+            <button 
+              onClick={initializeData}
+              className="px-6 py-3 bg-gradient-primary text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
+            >
+              Try Again
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -144,8 +166,13 @@ export const HabitTracker = () => {
   const last7Days = storageService.getLast7Days();
 
   return (
-    <div className="min-h-screen bg-background py-8 px-4">
-      <div className="max-w-md mx-auto space-y-6">
+    <div className="min-h-screen bg-background py-8 px-4 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 bg-gradient-bg"></div>
+      <div className="absolute top-20 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-md mx-auto space-y-8 relative z-10">
         <StreakDisplay 
           streak={habitData.currentStreak} 
           habitName={habitData.habitName}
