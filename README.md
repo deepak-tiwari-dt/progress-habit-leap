@@ -6,7 +6,7 @@
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone [URL](https://github.com/deepak-tiwari-dt/progress-habit-leap.git)
+git clone https://github.com/deepak-tiwari-dt/progress-habit-leap.git
 
 # Step 2: Navigate to the project directory.
 cd progress-habit-leap
