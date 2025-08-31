@@ -1,15 +1,15 @@
 # Tiny Habit Logger
 
-## Project info
+## Project Info
 
-**URL**: https://lovable.dev/projects/fb85edd4-94a6-4e10-b323-63fef1370b69
+**URL**: https://tiny-habit-logger.lovable.app/
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone [URL](https://github.com/deepak-tiwari-dt/progress-habit-leap.git)
 
 # Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+cd progress-habit-leap
 
 # Step 3: Install the necessary dependencies.
 npm i
